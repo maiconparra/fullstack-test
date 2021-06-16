@@ -1,7 +1,7 @@
 # Teste Full-Stack
 # Leia primeiro todo o projeto
 Quando finalizar o teste, **publique tudo no seu Github, BitBucket e envie por email para xxx@reweb.com.br** com o assunto [Teste Full-Stack PHP] Finalizado - <SEU NOME>
-**Deverá ser criado o dockerfile para a montagem do ambiente**
+\r\n**Deverá ser criado o dockerfile para a montagem do ambiente**
 
 # Missão backend
 Desenvolver uma **API JSON RESTfull** em PHP, que utilize todos os métodos (GET, POST, PUT, DELETE).
