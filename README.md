@@ -8,7 +8,7 @@ Desenvolver uma **API JSON RESTfull** em PHP, que utilize todos os métodos (GET
 <br>Se preferir, utilize algum framework PHP que você sinta mais facilidade: Code Igniter, Laravel
 
 # Especificação
-<br>Monte uma base de veículos com a seguinte estrutura:
+<br>**Monte uma base de veículos com a seguinte estrutura:**
 <br>id:		    integer
 <br>veiculo:   	string
 <br>marca:     	string
