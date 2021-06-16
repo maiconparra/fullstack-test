@@ -5,53 +5,53 @@ Quando finalizar o teste, **publique tudo no seu Github, BitBucket e envie por e
 
 # Missão backend
 Desenvolver uma **API JSON RESTfull** em PHP, que utilize todos os métodos (GET, POST, PUT, DELETE).
-Se preferir, utilize algum framework PHP que você sinta mais facilidade: Code Igniter, Laravel
+<br>Se preferir, utilize algum framework PHP que você sinta mais facilidade: Code Igniter, Laravel
 
 # Especificação
-Monte uma base de veículos com a seguinte estrutura:
-id:		    integer
-veiculo:   	string
-marca:     	string
-ano:       	integer
-descricao: 	text
-vendido:   	bool
-created:   	datetime
-updated:   	datetime
-Utilize MySQL para armazenar os dados que a API irá consumir.
+<br>Monte uma base de veículos com a seguinte estrutura:
+<br>id:		    integer
+<br>veiculo:   	string
+<br>marca:     	string
+<br>ano:       	integer
+<br>descricao: 	text
+<br>vendido:   	bool
+<br>created:   	datetime
+<br>updated:   	datetime
+<br>Utilize MySQL para armazenar os dados que a API irá consumir.
 
 # API endpoints
 **GET /veiculos**
-Retorna todos os veículos
-
-**GET /veiculos/find**
-Retorna os veículos de acordo com o termo passado parâmetro q (URL: /veiculos/find?q="termo buscado")
-
-**GET /veiculos/{:id}**
-Retorna os detalhes do veículo
-
-**POST /veiculos**
-Adiciona um novo veículo
-
-**PUT /veiculos/{:id}**
-Atualiza os dados de um veículo
-
-**DELETE /veiculos/{:id}**
-Apaga o veículo
-
+<br>Retorna todos os veículos
+<br>
+<br>**GET /veiculos/find**
+<br>Retorna os veículos de acordo com o termo passado parâmetro q (URL: /veiculos/find?q="termo buscado")
+<br>
+<br>**GET /veiculos/{:id}**
+<br>Retorna os detalhes do veículo
+<br>
+<br>**POST /veiculos**
+<br>Adiciona um novo veículo
+<br>
+<br>**PUT /veiculos/{:id}**
+<br>Atualiza os dados de um veículo
+<br>
+<br>**DELETE /veiculos/{:id}**
+<br>Apaga o veículo
+<br>
 # Missão frontend
 Desenvolver uma UI (User Interface) conforme especificação abaixo. O layout é livre. Mas lembre-se, ela deve ser responsiva.
 
 # Especificação
 
-Layout responsivo
+<br>Layout responsivo
 **Consumir API** criada acima
-Usar algum framework Javascript será um Bônus ⭐
+<br>Usar algum framework Javascript será um Bônus ⭐
 
 **Criar uma tela que tenha:**
-Listagem de veículos
-Detalhe do veículo
-Busca
-Formulário de novo/edição de veículos
+<br>Listagem de veículos
+<br>Detalhe do veículo
+<br>Busca
+<br>Formulário de novo/edição de veículos
 
 
 # Dica
