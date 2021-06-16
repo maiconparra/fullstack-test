@@ -1,6 +1,6 @@
 # Teste Full-Stack
 # Leia primeiro todo o projeto
-Quando finalizar o teste, **publique tudo no seu Github, BitBucket e envie por email para xxx@reweb.com.br** com o assunto [Teste Full-Stack PHP] Finalizado - <SEU NOME>
+Quando finalizar o teste, **publique tudo no seu Github, BitBucket e envie por email para xxx@reweb.com.br** com o assunto [Teste Full-Stack PHP] Finalizado - < SEU NOME >
 <br>Deverá ser criado o dockerfile para a montagem do ambiente**
 
 # Missão backend
