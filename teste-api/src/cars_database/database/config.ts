@@ -1,10 +1,10 @@
 export interface Config {
-    dialect: 'mariadb',
+    dialect: 'mysql',
     host: 'localhost',
     port: 3306,
-    database: 'magicpark',
-    username: 'root',
-    password: 'root',
+    database: 'cars',
+    username: 'maicon',
+    password: '123455',
     define: {
         timestamps: true,
         underscored: false

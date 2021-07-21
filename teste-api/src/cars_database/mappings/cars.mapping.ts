@@ -10,9 +10,6 @@ export class Car extends CarModel {
             ano: DataTypes.INTEGER,
             descricao: DataTypes.DATE,
             vendido: DataTypes.TINYINT,
-            created: DataTypes.DATE,
-            updated: DataTypes.DATE
-
         },{
             sequelize,
             freezeTableName: true

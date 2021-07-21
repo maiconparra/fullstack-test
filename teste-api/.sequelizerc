@@ -2,5 +2,5 @@ const path = require('path');
 
 module.exports = {
     config: path.resolve(__dirname, 'config.js'),
-    'migrations-path': path.resolve(__dirname, 'src', 'intranet_database', 'migrations'),
+    'migrations-path': path.resolve(__dirname, 'src', 'cars_database', 'migrations'),
 }

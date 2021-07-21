@@ -1,10 +1,10 @@
 module.exports = {
-    dialect: 'mariadb',
+    dialect: 'mysql',
     host: 'localhost',
-    port: 3307,
-    database: 'magicpark',
-    username: 'root',
-    password: '',
+    port: 3306,
+    database: 'cars',
+    username: 'maicon',
+    password: '123456',
     define: {
         timestamps: true,
         underscored: true

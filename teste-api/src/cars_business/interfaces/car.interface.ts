@@ -5,6 +5,4 @@ export interface CarInterface {
     ano: Number,
     descricao: String,
     vendido: Boolean,
-    created: Date,
-    updated: Date
 }
