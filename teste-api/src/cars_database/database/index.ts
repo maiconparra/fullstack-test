@@ -3,10 +3,10 @@ import { Config } from './config';
 
 
 // Mappings
-import { Car } from '../mappings/cars.mapping';
+import { cars } from '../mappings/cars.mapping';
 
 const connection = new Sequelize('mysql://maicon:123456@localhost:3306/cars');
 
-Car.onLoadCar(connection);
+cars.onLoadCar(connection);
 
 export default connection;

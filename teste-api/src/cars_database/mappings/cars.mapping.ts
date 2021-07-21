@@ -1,7 +1,7 @@
 import CarModel from '../../cars_business/models/cars.model';
 import { DataTypes } from 'sequelize';
 
-export class Car extends CarModel {
+export class cars extends CarModel {
 
     static onLoadCar(sequelize: any): void{
         super.init({

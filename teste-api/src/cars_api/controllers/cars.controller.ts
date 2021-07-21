@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Json } from 'sequelize/types/lib/utils';
-import { Car } from '../../cars_database/mappings/cars.mapping';
+import { cars } from '../../cars_database/mappings/cars.mapping';
 
 
 export default class CarsController {
@@ -9,26 +9,30 @@ export default class CarsController {
 
     public async carById(req: Request, res: Response): Promise<Response> {
 
-        const { id } = req.params;
+        const { id } = req.body;
 
-        const car = Car.findByPk(id);
+        cars.findByPk(id).then(result => {
+            res.json(result);
+        }).catch(error => {
+            res.json(error);
+        });
 
-        return res.json(car);
+        return;
     }
 
     public async carUpdate(req: Request, res: Response): Promise<Response> {
         
-        const { id, veiculo, marca, ano, descricao, vendido } = req.params
+        const { id, veiculo, marca, ano, descricao, vendido } = req.body;
 
         let venda: Boolean;
 
-        if (vendido === "true") {
+        if (vendido === "1") {
             venda = true;
         }else {
             venda = false;
         }
 
-        const car = Car.update({
+        cars.update({
             veiculo,
             marca,
             ano: parseInt(ano),
@@ -38,45 +42,91 @@ export default class CarsController {
             where: {
                 id
             }
+        }).then(result => {
+            return res.json(result);
+        }).catch(error => {
+            return res.json(error);
         });
 
-        return res.json(car);
+        return;
 
+    }
+
+    public async carPost(req: Request, res: Response): Promise<Response> {
+
+        const carro = req.body;
+
+        let vend; 
+
+        if(carro.vendido === 'true') {
+            vend = true;
+        }else {
+            vend = false;
+        }
+
+        cars.create({
+            veiculo: carro.veiculo,
+            marca: carro.marca,
+            ano: parseInt(carro.ano),
+            descricao: carro.descricao,
+            vendido: vend
+        }).then(result => {
+            return res.json(result);
+        }).catch(error => {
+            return res.json(error);
+        });
+
+        return;
     }
 
     public async carDelete(req: Request, res: Response): Promise<Response> {
 
-        
+        const { id } = req.body;
 
-        return  res.json();
+        cars.findByPk(id).then(result => {
+
+            result.destroy();
+
+            return res.json(result);
+        }).catch(error => {
+            return res.json(error);
+        });
+
+        return;
     }
 
     public async carsFind(req: Request, res: Response): Promise<Response> {
 
-        const { veiculo, marca } = req.params;
+        const { veiculo, marca } = req.body;
 
-        let result: any;
-
-        if ((veiculo === null || veiculo === '') || (marca === null || marca === '')) {
-            result = {
-                error: "Não foi digitado nenhum valor parra a busca"
-            };
-        }else if (veiculo !== '' && marca === '') {
-            result = Car.findAll({where : {
+        if (veiculo !== '' && marca === '') {
+            cars.findAll({where : {
                 veiculo
-            }});
+            }}).then(result => {
+                return res.json(result);
+            }).catch(error => {
+                return res.json(error);
+            });
         }else if (veiculo === '' && marca !== '') {
-            result = Car.findAll({where : {
+            cars.findAll({where : {
                 marca
-            }});
+            }}).then(result => {
+                return res.json(result);
+            }).catch(error => {
+                return res.json(error);
+            });
         }else {
-            result = Car.findAll({where : {
+            cars.findAll({where : {
                 marca,
                 veiculo
-            }});
+            }}).then(result => {
+                return res.json(result);
+            }).catch(error => {
+                return res.json(error);
+            });
         }
 
-        return res.json(result);
+        return;
     }
    
 }
