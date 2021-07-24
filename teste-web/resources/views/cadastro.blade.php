@@ -6,6 +6,11 @@
 <div id="cars-create-container" class="col-md-6 offset-md">
     <h1>Cadastre o seu veiculo</h1>
     <p>Os campos com * são obrigatórios!</p>
+
+    @if(!empty($messge))
+    <h2>{{$message}}</h2>
+    @endif
+
     <form action="/cadastrar" method="POST">
         @csrf
         <div class="form-group">

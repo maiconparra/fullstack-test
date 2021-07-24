@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-
+use PhpParser\Node\Expr\Throw_;
 use stdClass;
 
 class EventController extends Controller
@@ -30,17 +31,23 @@ class EventController extends Controller
 
     public function store(Request $request) {
 
-        $obj = new stdClass();
-        $obj->veiculo = $request->veiculo;
-        $obj->marca = $request->marca;
-        $obj->ano = intval($request->ano);
-        $obj->descricao = $request->descricao;
-        $obj->vendido = $request->vendido;
+        try {
 
-        echo '<pre>';
-        print_r((array) $obj);
+            $obj = new stdClass();
+            $obj->veiculo = $request->veiculo;
+            $obj->marca = $request->marca;
+            $obj->ano = intval($request->ano);
+            $obj->descricao = $request->descricao;
+            $obj->vendido = $request->vendido;
 
-        Http::post('http://localhost:3333/carsPost', (array) $obj);
-        return redirect('/cars/cars');
+            if(empty($obj->veiculo) || empty($obj->marca) || empty($obj->ano) || empty($obj->descricao) || empty($obj->vendido)) {
+                throw new Exception('Á campos obrigatórios não preenchidos!!');
+            }
+
+            Http::post('http://localhost:3333/carsPost', (array) $obj);
+            return redirect('/cars/cars');
+        }catch (Exception $e) {
+
+        }
     }
 }
