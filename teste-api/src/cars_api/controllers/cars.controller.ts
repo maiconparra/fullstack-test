@@ -56,23 +56,24 @@ export default class CarsController {
 
         const carro = req.body;
 
-        let vend; 
+        console.log(carro);
 
-        if(carro.vendido === 'true') {
-            vend = true;
-        }else {
-            vend = false;
-        }
 
         cars.create({
             veiculo: carro.veiculo,
             marca: carro.marca,
             ano: parseInt(carro.ano),
             descricao: carro.descricao,
-            vendido: vend
+            vendido: carro.vendido
         }).then(result => {
+
+            console.log(result);
+
             return res.json(result);
         }).catch(error => {
+        
+            console.log(error);
+
             return res.json(error);
         });
 

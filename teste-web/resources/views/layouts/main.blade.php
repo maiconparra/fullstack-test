@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="/cadastrar">Cadastrar Novo Veiculo</a>
+                  <a class="nav-link" href="/form-veiculo">Cadastrar Novo Veiculo</a>
                 </li>
                 <li class="nav-item active">
                   <a class="nav-link" href="/cars/cars">Listagem de Carros</a>
