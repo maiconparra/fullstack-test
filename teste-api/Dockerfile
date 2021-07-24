@@ -16,3 +16,5 @@ RUN yarn install
 COPY . .
 
 CMD [ "yarn", "start" ]
+
+EXPOSE 3333
