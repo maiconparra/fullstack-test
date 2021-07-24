@@ -28,14 +28,6 @@ module.exports = {
       vendido: {
         type: Sequelize.BOOLEAN,
         allowNull: false 
-      },
-      createdat: {
-        type: Sequelize.DATE,
-        allowNull: false 
-      },
-      updatedat: {
-        type: Sequelize.DATE,
-        allowNull: true 
       }
     })
   },

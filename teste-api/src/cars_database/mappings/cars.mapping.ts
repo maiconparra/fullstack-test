@@ -8,8 +8,8 @@ export class cars extends CarModel {
             veiculo: DataTypes.STRING,
             marca: DataTypes.STRING,
             ano: DataTypes.INTEGER,
-            descricao: DataTypes.DATE,
-            vendido: DataTypes.TINYINT,
+            descricao: DataTypes.TEXT,
+            vendido: DataTypes.TINYINT
         },{
             sequelize,
             freezeTableName: true

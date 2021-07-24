@@ -99,6 +99,7 @@ export default class CarsController {
 
         const { veiculo, marca } = req.body;
 
+        
         if (veiculo !== '' && marca === '') {
             cars.findAll({where : {
                 veiculo
@@ -115,11 +116,17 @@ export default class CarsController {
             }).catch(error => {
                 return res.json(error);
             });
-        }else {
+        }else if (veiculo !== '' && marca !== ''){
             cars.findAll({where : {
                 marca,
                 veiculo
             }}).then(result => {
+                return res.json(result);
+            }).catch(error => {
+                return res.json(error);
+            });
+        }else {
+            cars.findAll().then(result => {
                 return res.json(result);
             }).catch(error => {
                 return res.json(error);

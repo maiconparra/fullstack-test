@@ -5,7 +5,7 @@ import { Config } from './config';
 // Mappings
 import { cars } from '../mappings/cars.mapping';
 
-const connection = new Sequelize('mysql://maicon:123456@localhost:3306/cars');
+const connection = new Sequelize('mysql://root:@localhost:3306/cars');
 
 cars.onLoadCar(connection);
 

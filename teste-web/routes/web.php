@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+use App\Http\Controllers\EventController;
+
+Route::get('/', [EventController::class, 'index']);
+
+Route::get('/cars/cars', [EventController::class, 'listCars']);
+
+Route::get('/cadastrar', [EventController::class, 'createCars']);

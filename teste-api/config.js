@@ -3,8 +3,8 @@ module.exports = {
     host: 'localhost',
     port: 3306,
     database: 'cars',
-    username: 'maicon',
-    password: '123456',
+    username: 'root',
+    password: '',
     define: {
         timestamps: true,
         underscored: true

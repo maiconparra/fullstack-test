@@ -4,5 +4,5 @@ export interface CarInterface {
     marca: String,
     ano: Number,
     descricao: String,
-    vendido: Boolean,
+    vendido: Boolean
 }

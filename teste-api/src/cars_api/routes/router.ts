@@ -11,7 +11,7 @@ const carsConttroler = new CarsConttroler;
 Routes.get('/carById', carsConttroler.carById);
 Routes.put('/carUpdate', carsConttroler.carUpdate);
 Routes.delete('/carDelete', carsConttroler.carDelete);
-Routes.get('/carsFind', carsConttroler.carsFind);
+Routes.post('/carsFind', carsConttroler.carsFind);
 Routes.post('/carsPost', carsConttroler.carPost);
 
 
