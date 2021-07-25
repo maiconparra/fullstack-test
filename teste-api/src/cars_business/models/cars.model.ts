@@ -12,6 +12,7 @@ class CarModel extends Model<CarInterface, CarCreation> implements CarInterface 
     public ano: Number
     public descricao: String;
     public vendido: Boolean;
+    public file: String
 }
 
 export default CarModel;

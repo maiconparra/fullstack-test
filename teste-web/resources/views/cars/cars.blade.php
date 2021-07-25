@@ -3,9 +3,7 @@
 @section('title', 'Home')
 @section('content')
 
-<pre>
-
-    <table id="table-cars" class="table table-striped table-bordered" style="width:100%">
+    <table id="table-cars" class="table table-striped table-bordered">
         <thead>
             <tr class="row">
                 <th class="col-sm-2">Veiculo</th>
@@ -35,6 +33,5 @@
     @endforeach
         </tbody>
     </table>
-</pre>
 
 @endsection

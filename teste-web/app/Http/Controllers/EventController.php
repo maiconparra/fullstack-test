@@ -13,7 +13,7 @@ class EventController extends Controller
     //
     public function index()
     {
-        $cars = Http::post('http://localhost:3333/carsFind', ["veiculo" => "", "marca" => ""]);
+        $cars = Http::post('http://localhost:3333/carsFind', ["veiculo" => null, "marca" => null]);
 
         return view('home', ["cars" => json_decode($cars)]);
     }
@@ -31,8 +31,6 @@ class EventController extends Controller
 
     public function store(Request $request) {
 
-        try {
-
             $obj = new stdClass();
             $obj->veiculo = $request->veiculo;
             $obj->marca = $request->marca;
@@ -41,13 +39,38 @@ class EventController extends Controller
             $obj->vendido = $request->vendido;
 
             if(empty($obj->veiculo) || empty($obj->marca) || empty($obj->ano) || empty($obj->descricao) || empty($obj->vendido)) {
-                throw new Exception('Á campos obrigatórios não preenchidos!!');
+                return redirect('/form-veiculo')->with('msg', 'Á campos obrigatórios não preenchidos!!');
             }
 
             Http::post('http://localhost:3333/carsPost', (array) $obj);
-            return redirect('/cars/cars');
-        }catch (Exception $e) {
+            return redirect('/cars/cars')->with('msg', 'Veiculo cadastrado com sucesso!!');
+    }
 
+    public function find(Request $request) {
+
+        $obj = new stdClass();
+        $obj->veiculo = $request->veiculo;
+        $obj->marca = $request->marca;
+
+        if(empty($obj->veiculo) && empty($obj->marca)) {
+            $obj->veiculo = null;
+            $obj->marca = null;
+        }else if(empty($obj->veiculo) && !empty($obj->marca)) {
+            $obj->veiculo = null;
+        }else if(!empty($obj->veiculo) && empty($obj->marca)){
+            $obj->marca = null;
         }
+
+        $cars = Http::post('http://localhost:3333/carsFind', (array) $obj);
+
+        if(empty(json_decode($cars))) {
+            return redirect('/')->with('msg', 'Veiculo não encontrado!!');
+        }
+
+        echo '<pre>';
+        print_r(json_decode($cars));
+        //exit();
+
+        return redirect('/')->with('cars', json_decode($cars));
     }
 }

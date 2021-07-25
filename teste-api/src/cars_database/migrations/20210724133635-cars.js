@@ -28,6 +28,10 @@ module.exports = {
       vendido: {
         type: Sequelize.BOOLEAN,
         allowNull: false 
+      },
+      file: {
+        type: Sequelize.STRING,
+        allowNull: false
       }
     })
   },

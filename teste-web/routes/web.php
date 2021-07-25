@@ -22,3 +22,5 @@ Route::get('/cars/cars', [EventController::class, 'listCars']);
 Route::get('/form-veiculo', [EventController::class, 'createCars']);
 
 Route::post('/cadastrar', [EventController::class, 'store']);
+
+Route::post('/encontrar', [EventController::class, 'find']);

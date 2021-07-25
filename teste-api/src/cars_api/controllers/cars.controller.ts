@@ -64,7 +64,8 @@ export default class CarsController {
             marca: carro.marca,
             ano: parseInt(carro.ano),
             descricao: carro.descricao,
-            vendido: carro.vendido
+            vendido: carro.vendido,
+            file: carro.file
         }).then(result => {
 
             console.log(result);
@@ -101,33 +102,37 @@ export default class CarsController {
         const { veiculo, marca } = req.body;
 
         
-        if (veiculo !== '' && marca === '') {
+        if (veiculo !== null && marca === null) {
             cars.findAll({where : {
                 veiculo
             }}).then(result => {
+                console.log('1: ',result);
                 return res.json(result);
             }).catch(error => {
                 return res.json(error);
             });
-        }else if (veiculo === '' && marca !== '') {
+        }else if (veiculo === null && marca !== null) {
             cars.findAll({where : {
                 marca
             }}).then(result => {
+                console.log('2: ',result);
                 return res.json(result);
             }).catch(error => {
                 return res.json(error);
             });
-        }else if (veiculo !== '' && marca !== ''){
+        }else if (veiculo !== null && marca !== null){
             cars.findAll({where : {
                 marca,
                 veiculo
             }}).then(result => {
+                console.log('3: ',result);
                 return res.json(result);
             }).catch(error => {
                 return res.json(error);
             });
         }else {
             cars.findAll().then(result => {
+                console.log('4: ',result);
                 return res.json(result);
             }).catch(error => {
                 return res.json(error);
