@@ -53,7 +53,7 @@ class EventController extends Controller
 
             }
 
-            if(empty($obj->veiculo) || empty($obj->marca) || empty($obj->ano) || empty($obj->descricao) || empty($obj->vendido)) {
+            if(empty($obj->veiculo) || empty($obj->marca) || empty($obj->ano) || empty($obj->descricao)) {
                 return redirect('/form-veiculo')->with('msg', 'Á campos obrigatórios não preenchidos!!');
             }
 

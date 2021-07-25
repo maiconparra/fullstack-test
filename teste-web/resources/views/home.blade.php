@@ -51,7 +51,10 @@
                 @else
                 <p class="card-text">Vendido: Não</p>
                 @endif
-                <p class="card-date">{{$item->createdAt}}</p>
+                @php
+                    $date = new DateTime($item->createdAt);
+                    echo '<p class="card-date">'.$date->format('d/m/y').'</p>';
+                @endphp
             </div>
         </div>
         @endforeach
