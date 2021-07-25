@@ -20,7 +20,7 @@ class EventController extends Controller
 
     public function listCars() {
 
-        $cars = Http::post('http://localhost:3333/carsFind', ["veiculo" => "", "marca" => ""]);
+        $cars = Http::post('http://localhost:3333/carsFind', ["veiculo" => null, "marca" => null]);
 
         return view('cars.cars', ['cars' => json_decode($cars)]);
     }
@@ -37,6 +37,21 @@ class EventController extends Controller
             $obj->ano = intval($request->ano);
             $obj->descricao = $request->descricao;
             $obj->vendido = $request->vendido;
+
+            //Image upload
+            if($request->hasFile('file') && $request->file('file')->isValid()) {
+
+                $requestFile = $request->file;
+
+                $extension = $requestFile->extension();
+
+                $imageName = md5($requestFile->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+                $requestFile->move(public_path('img/carsImages'), $imageName);
+
+                $obj->file = $imageName;
+
+            }
 
             if(empty($obj->veiculo) || empty($obj->marca) || empty($obj->ano) || empty($obj->descricao) || empty($obj->vendido)) {
                 return redirect('/form-veiculo')->with('msg', 'Á campos obrigatórios não preenchidos!!');

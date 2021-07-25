@@ -26,7 +26,7 @@
     @if (session('cars'))
         @foreach (session('cars') as $item)
         <div class="card col-md-3">
-            <img class="card-img-top" src="..." alt="{{ $item->veiculo }}">
+            <img class="card-img-top" src="/img/carsImages/{{$item->file}}" alt="{{ $item->veiculo }}">
             <div class="card-body">
                 <h5 class="card-title">{{ $item->veiculo }} -- {{ $item->marca }}</h5>
                 <p class="card-text">{{ $item->descricao }}</p>
@@ -42,7 +42,7 @@
     @else
         @foreach ($cars as $item)
         <div class="card col-md-3">
-            <img class="card-img-top" src="..." alt="{{ $item->veiculo }}">
+            <img class="card-img-top" src="/img/carsImages/{{$item->file}}" alt="{{ $item->veiculo }}">
             <div class="card-body">
                 <h5 class="card-title">{{ $item->veiculo }} -- {{ $item->marca }}</h5>
                 <p class="card-text">{{ $item->descricao }}</p>

@@ -7,12 +7,12 @@
     <h1>Cadastre o seu veiculo</h1>
     <p>Os campos com * são obrigatórios!</p>
 
-    @if(!empty($messge))
-    <h2>{{$message}}</h2>
-    @endif
-
-    <form action="/cadastrar" method="POST">
+    <form action="/cadastrar" method="POST" enctype="multipart/form-data">
         @csrf
+        <div class="form-group">
+            <label for="Imagem">Imagem</label>
+            <input type="file" id="file" name="file" class="form-control-file">
+        </div>
         <div class="form-group">
             <input type="hidden" class="form-control" class="id" name="id">
         </div>
